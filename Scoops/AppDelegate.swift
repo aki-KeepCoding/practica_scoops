@@ -11,11 +11,25 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
     var window: UIWindow?
 
-
+    
+    func generateDummyNoticias () -> [Noticia] {
+        let not1 = Noticia(titulo:"Noticia 1", texto: "Noticia de pega 1", autor: "Akixe")
+        let not2 = Noticia(titulo:"Noticia 2", texto: "Noticia de pega 2", autor: "Ixiar")
+        let not3 = Noticia(titulo:"Noticia 3", texto: "Noticia de pega 3", autor: "Laira")
+        let not4 = Noticia(titulo:"Noticia 4", texto: "Noticia de pega 4", autor: "Jare")
+        
+        return [not1, not2, not3, not4]
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let model = generateDummyNoticias()
+        let noticiasAdministradorTableVC = NoticiasAdministradorTableVC(model: model)
+        let administradorNavVC = UINavigationController(rootViewController: noticiasAdministradorTableVC)
+        window?.rootViewController = administradorNavVC
+        window?.makeKeyAndVisible()
         return true
     }
 
