@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613C382F1DC064CC0029B59C /* NoticiaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613C382D1DC064CC0029B59C /* NoticiaVC.swift */; };
+		613C38301DC064CC0029B59C /* NoticiaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 613C382E1DC064CC0029B59C /* NoticiaVC.xib */; };
+		613C38321DC066180029B59C /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 613C38311DC066180029B59C /* dummyImage.jpg */; };
 		616B7C711DBE9D6A005BDE1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B7C701DBE9D6A005BDE1A /* AppDelegate.swift */; };
 		616B7C731DBE9D6A005BDE1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B7C721DBE9D6A005BDE1A /* ViewController.swift */; };
 		616B7C761DBE9D6A005BDE1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B7C741DBE9D6A005BDE1A /* Main.storyboard */; };
 		616B7C781DBE9D6A005BDE1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616B7C771DBE9D6A005BDE1A /* Assets.xcassets */; };
 		616B7C7B1DBE9D6A005BDE1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B7C791DBE9D6A005BDE1A /* LaunchScreen.storyboard */; };
-		616B7CAC1DBEA719005BDE1A /* NoticiasAdministradorTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B7CAB1DBEA719005BDE1A /* NoticiasAdministradorTableVC.swift */; };
+		616B7CAC1DBEA719005BDE1A /* NoticiasEditorTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B7CAB1DBEA719005BDE1A /* NoticiasEditorTableVC.swift */; };
 		616B7CAE1DBEA884005BDE1A /* Noticia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B7CAD1DBEA884005BDE1A /* Noticia.swift */; };
+		61B6C25B1DC1137B001F4BB6 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B6C25A1DC1137B001F4BB6 /* AZSClient.framework */; };
+		61B6C25D1DC1144D001F4BB6 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B6C25C1DC1144D001F4BB6 /* libxml2.2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613C382D1DC064CC0029B59C /* NoticiaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiaVC.swift; sourceTree = "<group>"; };
+		613C382E1DC064CC0029B59C /* NoticiaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaVC.xib; sourceTree = "<group>"; };
+		613C38311DC066180029B59C /* dummyImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dummyImage.jpg; path = Scoops/dummyImage.jpg; sourceTree = "<group>"; };
 		616B7C6D1DBE9D6A005BDE1A /* Scoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616B7C701DBE9D6A005BDE1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		616B7C721DBE9D6A005BDE1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +32,11 @@
 		616B7C771DBE9D6A005BDE1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		616B7C7A1DBE9D6A005BDE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		616B7C7C1DBE9D6A005BDE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		616B7CAB1DBEA719005BDE1A /* NoticiasAdministradorTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiasAdministradorTableVC.swift; sourceTree = "<group>"; };
+		616B7CAB1DBEA719005BDE1A /* NoticiasEditorTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiasEditorTableVC.swift; sourceTree = "<group>"; };
 		616B7CAD1DBEA884005BDE1A /* Noticia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noticia.swift; sourceTree = "<group>"; };
+		61B6C25A1DC1137B001F4BB6 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AZSClient.framework; sourceTree = "<group>"; };
+		61B6C25C1DC1144D001F4BB6 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		61B6C25E1DC11544001F4BB6 /* Scoops-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scoops-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,15 +44,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B6C25D1DC1144D001F4BB6 /* libxml2.2.tbd in Frameworks */,
+				61B6C25B1DC1137B001F4BB6 /* AZSClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		613C38291DC064530029B59C /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				616B7CAD1DBEA884005BDE1A /* Noticia.swift */,
+			);
+			name = Modelo;
+			sourceTree = "<group>";
+		};
+		613C382A1DC064600029B59C /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				616B7CAB1DBEA719005BDE1A /* NoticiasEditorTableVC.swift */,
+				613C382D1DC064CC0029B59C /* NoticiaVC.swift */,
+				613C382E1DC064CC0029B59C /* NoticiaVC.xib */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
 		616B7C641DBE9D6A005BDE1A = {
 			isa = PBXGroup;
 			children = (
+				61B6C2591DC111BF001F4BB6 /* Frameworks */,
+				613C38311DC066180029B59C /* dummyImage.jpg */,
 				616B7C6F1DBE9D6A005BDE1A /* Scoops */,
 				616B7C6E1DBE9D6A005BDE1A /* Products */,
 			);
@@ -58,16 +91,26 @@
 		616B7C6F1DBE9D6A005BDE1A /* Scoops */ = {
 			isa = PBXGroup;
 			children = (
+				613C382A1DC064600029B59C /* Editor */,
+				613C38291DC064530029B59C /* Modelo */,
 				616B7C701DBE9D6A005BDE1A /* AppDelegate.swift */,
 				616B7C721DBE9D6A005BDE1A /* ViewController.swift */,
 				616B7C741DBE9D6A005BDE1A /* Main.storyboard */,
 				616B7C771DBE9D6A005BDE1A /* Assets.xcassets */,
 				616B7C791DBE9D6A005BDE1A /* LaunchScreen.storyboard */,
 				616B7C7C1DBE9D6A005BDE1A /* Info.plist */,
-				616B7CAB1DBEA719005BDE1A /* NoticiasAdministradorTableVC.swift */,
-				616B7CAD1DBEA884005BDE1A /* Noticia.swift */,
 			);
 			path = Scoops;
+			sourceTree = "<group>";
+		};
+		61B6C2591DC111BF001F4BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61B6C25C1DC1144D001F4BB6 /* libxml2.2.tbd */,
+				61B6C25A1DC1137B001F4BB6 /* AZSClient.framework */,
+				61B6C25E1DC11544001F4BB6 /* Scoops-Bridging-Header.h */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +146,7 @@
 					616B7C6C1DBE9D6A005BDE1A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 3KAEZ946L2;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,7 +176,9 @@
 			files = (
 				616B7C7B1DBE9D6A005BDE1A /* LaunchScreen.storyboard in Resources */,
 				616B7C781DBE9D6A005BDE1A /* Assets.xcassets in Resources */,
+				613C38301DC064CC0029B59C /* NoticiaVC.xib in Resources */,
 				616B7C761DBE9D6A005BDE1A /* Main.storyboard in Resources */,
+				613C38321DC066180029B59C /* dummyImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +191,8 @@
 			files = (
 				616B7C731DBE9D6A005BDE1A /* ViewController.swift in Sources */,
 				616B7C711DBE9D6A005BDE1A /* AppDelegate.swift in Sources */,
-				616B7CAC1DBEA719005BDE1A /* NoticiasAdministradorTableVC.swift in Sources */,
+				613C382F1DC064CC0029B59C /* NoticiaVC.swift in Sources */,
+				616B7CAC1DBEA719005BDE1A /* NoticiasEditorTableVC.swift in Sources */,
 				616B7CAE1DBEA884005BDE1A /* Noticia.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,11 +316,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3KAEZ946L2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Scoops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.akixe.Scoops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scoops-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -282,11 +336,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3KAEZ946L2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Scoops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.akixe.Scoops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scoops-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

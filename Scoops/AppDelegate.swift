@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     var window: UIWindow?
-
+    
     
     func generateDummyNoticias () -> [Noticia] {
         let not1 = Noticia(titulo:"Noticia 1", texto: "Noticia de pega 1", autor: "Akixe")
@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let model = generateDummyNoticias()
-        let noticiasAdministradorTableVC = NoticiasAdministradorTableVC(model: model)
-        let administradorNavVC = UINavigationController(rootViewController: noticiasAdministradorTableVC)
-        window?.rootViewController = administradorNavVC
+        let noticiasEditorTableVC = NoticiasEditorTableVC(model: model)
+        let editorNavVC = UINavigationController(rootViewController: noticiasEditorTableVC)
+        window?.rootViewController = editorNavVC
         window?.makeKeyAndVisible()
         return true
     }
