@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticiaVC" customModule="Scoops" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caQ-4Y-XkN">
+                    <items>
+                        <barButtonItem title="Publicar" id="Cbx-uO-hmV"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8ar-pW-Gxg"/>
+                        <barButtonItem title="Estadísticas" id="u3y-cg-dJE"/>
+                    </items>
+                </toolbar>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Mq-Ka-8pm">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9Mq-Ka-8pm" secondAttribute="height" multiplier="375:128" id="4OU-7m-ZOs"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-JY-Yav">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XIe-5f-WEB">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XIe-5f-WEB" secondAttribute="trailing" constant="16" id="853-8f-Osq"/>
+                <constraint firstAttribute="trailing" secondItem="g8J-JY-Yav" secondAttribute="trailing" constant="16" id="Cwo-w9-AwF"/>
+                <constraint firstAttribute="trailing" secondItem="9Mq-Ka-8pm" secondAttribute="trailing" id="DLM-pt-EV0"/>
+                <constraint firstItem="XIe-5f-WEB" firstAttribute="top" secondItem="g8J-JY-Yav" secondAttribute="bottom" constant="8" id="I6P-1f-xLS"/>
+                <constraint firstItem="9Mq-Ka-8pm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qoe-vA-Nbs"/>
+                <constraint firstItem="caQ-4Y-XkN" firstAttribute="top" secondItem="XIe-5f-WEB" secondAttribute="bottom" constant="21" id="YQf-Mh-xEK"/>
+                <constraint firstItem="g8J-JY-Yav" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="aba-Hx-klz"/>
+                <constraint firstItem="XIe-5f-WEB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="cU1-il-NRn"/>
+                <constraint firstAttribute="bottom" secondItem="caQ-4Y-XkN" secondAttribute="bottom" id="cbG-sa-ZvO"/>
+                <constraint firstItem="caQ-4Y-XkN" firstAttribute="trailing" secondItem="9Mq-Ka-8pm" secondAttribute="trailing" id="fgs-bF-GHb"/>
+                <constraint firstItem="caQ-4Y-XkN" firstAttribute="leading" secondItem="9Mq-Ka-8pm" secondAttribute="leading" id="gIT-Cc-NXK"/>
+                <constraint firstItem="g8J-JY-Yav" firstAttribute="top" secondItem="9Mq-Ka-8pm" secondAttribute="bottom" constant="13" id="qm0-GI-lbT"/>
+                <constraint firstItem="9Mq-Ka-8pm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="52" id="zYS-cs-oDa"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dummyImage.jpg" width="2560" height="1600"/>
+    </resources>
+</document>
