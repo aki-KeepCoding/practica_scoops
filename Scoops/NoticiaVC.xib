@@ -9,6 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticiaVC" customModule="Scoops" customModuleProvider="target">
             <connections>
+                <outlet property="imagenView" destination="9Mq-Ka-8pm" id="yXJ-LJ-kVR"/>
+                <outlet property="textoView" destination="XIe-5f-WEB" id="n8s-oh-rtj"/>
+                <outlet property="tituloView" destination="g8J-JY-Yav" id="rof-wE-mln"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,6 +43,19 @@
                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub5-gC-EXz">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="161" id="sC8-3f-ep9"/>
+                    </constraints>
+                    <state key="normal" title="Cambiar Imagen">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="setImagen:" destination="-1" eventType="touchUpInside" id="M04-cW-a4E"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -54,6 +70,8 @@
                 <constraint firstAttribute="bottom" secondItem="caQ-4Y-XkN" secondAttribute="bottom" id="cbG-sa-ZvO"/>
                 <constraint firstItem="caQ-4Y-XkN" firstAttribute="trailing" secondItem="9Mq-Ka-8pm" secondAttribute="trailing" id="fgs-bF-GHb"/>
                 <constraint firstItem="caQ-4Y-XkN" firstAttribute="leading" secondItem="9Mq-Ka-8pm" secondAttribute="leading" id="gIT-Cc-NXK"/>
+                <constraint firstItem="Ub5-gC-EXz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="kjO-kg-VA1"/>
+                <constraint firstAttribute="trailing" secondItem="Ub5-gC-EXz" secondAttribute="trailing" id="l1M-eL-OzD"/>
                 <constraint firstItem="g8J-JY-Yav" firstAttribute="top" secondItem="9Mq-Ka-8pm" secondAttribute="bottom" constant="13" id="qm0-GI-lbT"/>
                 <constraint firstItem="9Mq-Ka-8pm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="52" id="zYS-cs-oDa"/>
             </constraints>

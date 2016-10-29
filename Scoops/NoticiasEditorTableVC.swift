@@ -10,10 +10,14 @@ import UIKit
 
 class NoticiasEditorTableVC: UITableViewController {
 
-    let model: [Noticia]
+    var model: Noticias? = []
+    let azClient : MSClient
     
-    init(model: [Noticia]) {
-        self.model = model
+    
+    init(editor: String, azClient: MSClient = AzureServices.mobileAppClient) {
+        //self.model = DummyData.generateDummyNoticias()
+        self.azClient = azClient
+        
         super.init(nibName:nil, bundle:nil)
     }
     
@@ -33,7 +37,8 @@ class NoticiasEditorTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                                                  target: self,
-                                                                 action: nil)
+                                                                 action: #selector(self.addNoticia))
+        readAllNoticias()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,30 +55,54 @@ class NoticiasEditorTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return model.count
+        if let m = model {
+            return m.count
+        } else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = model[indexPath.row].titulo
-        cell.detailTextLabel?.text = model[indexPath.row].autor
+        cell.textLabel?.text = model?[indexPath.row].titulo
+        cell.detailTextLabel?.text = model?[indexPath.row].autor
         
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let noticia = model[indexPath.row]
-        
-        let noticiaVC = NoticiaVC(model:noticia)
-        
+        if let noticia = model?[indexPath.row] {
+            openNoticiaVC(withModel: noticia, andAzClient: azClient)
+        }
+    }
+    
+    func addNoticia(){
+        openNoticiaVC(withModel: Noticia(withAutor: "Akixe"), andAzClient: azClient)
+    }
+    
+    func readAllNoticias(){
+        NoticiaService.getAll { (noticias, error) in
+            if let _ = error {
+                print(error)
+                return
+            }
+            if !((self.model?.isEmpty)!) {
+                self.model?.removeAll()
+            }
+            self.model?.append(contentsOf: noticias)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func openNoticiaVC(withModel model: Noticia, andAzClient azClient: MSClient ) {
+        let noticiaVC = NoticiaVC(model: model, azClient: azClient)
         self.navigationController?.pushViewController(noticiaVC, animated: true)
     }
     
-    func createNoticia(){
-        
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
