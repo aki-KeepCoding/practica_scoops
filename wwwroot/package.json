@@ -1,0 +1,23 @@
+{
+  "name": "practica_scoops_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akixe/practica_scoops_backend.git"
+  },
+  "author": "AOA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akixe/practica_scoops_backend/issues"
+  },
+  "homepage": "https://github.com/akixe/practica_scoops_backend#readme",
+  "dependencies": {
+    "azure-mobile-apps": "^3.0.2",
+    "express": "^4.14.0"
+  }
+}

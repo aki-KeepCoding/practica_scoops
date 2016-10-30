@@ -8,7 +8,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Scoops" customModuleProvider="target">
             <connections>
-                <outlet property="nombreEditorView" destination="UUJ-2h-M84" id="tpp-Qg-VJa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,30 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-60-hxv">
-                    <frame key="frameInset" minX="168" minY="170" width="38" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Login"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-60-hxv">
+                    <state key="normal" title="Login como Editor"/>
                     <connections>
                         <action selector="loginEditor:" destination="-1" eventType="touchUpInside" id="VPy-Vh-aVk"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de editor" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-2h-M84">
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlW-LB-VA8">
-                    <state key="normal" title="Login como lector"/>
+                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlW-LB-VA8">
+                    <state key="normal" title="Login como Lector"/>
+                    <connections>
+                        <action selector="loginLector:" destination="-1" eventType="touchUpInside" id="CVx-zo-Bgm"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="LlW-LB-VA8" secondAttribute="bottom" constant="20" id="Jng-BM-fHG"/>
+                <constraint firstItem="LlW-LB-VA8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BRx-kF-lNi"/>
+                <constraint firstItem="hzf-60-hxv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FOG-UH-Sg7"/>
+                <constraint firstAttribute="bottom" secondItem="LlW-LB-VA8" secondAttribute="bottom" constant="429" id="Jng-BM-fHG"/>
+                <constraint firstItem="LlW-LB-VA8" firstAttribute="leading" secondItem="hzf-60-hxv" secondAttribute="trailing" constant="-127" id="YF3-0S-lJo"/>
                 <constraint firstItem="LlW-LB-VA8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c01-8r-BAh"/>
-                <constraint firstItem="UUJ-2h-M84" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="gTV-Nr-eRN"/>
-                <constraint firstAttribute="trailing" secondItem="UUJ-2h-M84" secondAttribute="trailing" constant="16" id="u2x-Za-wmQ"/>
-                <constraint firstItem="UUJ-2h-M84" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="132" id="yEA-vf-TWO"/>
+                <constraint firstItem="hzf-60-hxv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="170" id="jkw-Xi-JP2"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="79.5"/>
         </view>

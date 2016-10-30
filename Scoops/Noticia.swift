@@ -22,6 +22,7 @@ class Noticia {
     var texto : String?
     var autor : String?
     var imagenURL : String?
+    var valoracion : Int?
     var estado : Estado? // Privado | Publicable | Publicada
     
     init(id: String?,
@@ -29,6 +30,7 @@ class Noticia {
          texto: String,
          autor: String,
          imagenURL : String,
+         valoracion: Int? = 0,
          estado: Estado? = Estado.privado) {
         if let _id = id {
             self.id = _id
@@ -37,6 +39,11 @@ class Noticia {
         self.texto = texto
         self.autor = autor
         self.imagenURL = imagenURL
+        if let _valoracion = valoracion {
+            self.valoracion = _valoracion
+        } else {
+            self.valoracion = 0
+        }
         if let _estado = estado  {
             self.estado = _estado
         } else {
@@ -45,16 +52,13 @@ class Noticia {
         
     }
     convenience init(withAutor autor : String) {
-        let titulo = ""
-        let texto = ""
-        let imagenURL = ""
-        let estado = Estado.privado
         self.init(id: nil,
-                  titulo: titulo,
-                  texto: texto,
-                  autor: autor,
-                  imagenURL: imagenURL,
-                  estado: estado)
+                  titulo: "",
+                  texto: "",
+                  autor: "",
+                  imagenURL: "",
+                  valoracion: 0,
+                  estado: Estado.privado)
     }
     
     convenience init(withDictionary noticiaDict: NoticiaDict) {
@@ -63,6 +67,7 @@ class Noticia {
         var texto = ""
         var autor = "Anónimo"
         var imagenURL = ""
+        var valoracion = 0
         var estado = Estado.privado
         if let _id = noticiaDict["id"] as? String {
             id = _id
@@ -80,6 +85,10 @@ class Noticia {
             imagenURL = _imagenURL
         }
         
+        if let _valoracion = noticiaDict["valoracion"] as? Int {
+            valoracion = _valoracion
+        }
+        
         if let _estado = noticiaDict["estado"] as? String {
             estado = Estado(rawValue : _estado)!
         }
@@ -88,6 +97,7 @@ class Noticia {
                   texto: texto,
                   autor: autor,
                   imagenURL: imagenURL,
+                  valoracion: valoracion,
                   estado: estado)
     }
     
@@ -99,7 +109,7 @@ class Noticia {
             "texto" : self.texto! as AnyObject,
             "autor" : self.autor! as AnyObject,
             "imagenURL" : self.imagenURL! as AnyObject,
-            "valoracion" : 0 as AnyObject,
+            "valoracion" : self.valoracion! as AnyObject,
             "estado" : self.estado!.rawValue as AnyObject
         ]
         

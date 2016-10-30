@@ -29,6 +29,12 @@ class NoticiaVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     
     
+    @IBAction func estadisticas(_ sender: AnyObject) {
+        let noticiaAnalyticsVC = NoticiaAnalyticsVC(model: self.model, noticiaService: self.noticiaService)
+        self.navigationController?.pushViewController(noticiaAnalyticsVC, animated: true)
+    }
+    
+    
     let model : Noticia
     
     var flagUploadingImagen = false
@@ -43,6 +49,8 @@ class NoticiaVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.noticiaService = noticiaService!
         self.blobService = blobService!
         super.init(nibName: nil, bundle: nil)
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

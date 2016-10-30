@@ -7,13 +7,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticiaVC" customModule="Scoops" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticiaLectorVC" customModule="Scoops" customModuleProvider="target">
             <connections>
-                <outlet property="estadoView" destination="Cbx-uO-hmV" id="q07-pc-7GD"/>
-                <outlet property="imagenView" destination="9Mq-Ka-8pm" id="yXJ-LJ-kVR"/>
-                <outlet property="textoView" destination="XIe-5f-WEB" id="n8s-oh-rtj"/>
-                <outlet property="tituloView" destination="g8J-JY-Yav" id="rof-wE-mln"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="imagenView" destination="9Mq-Ka-8pm" id="HdE-3h-igl"/>
+                <outlet property="textoView" destination="XIe-5f-WEB" id="bwf-tj-OuM"/>
+                <outlet property="tituloView" destination="tBq-DZ-aQF" id="7mj-FL-H5o"/>
+                <outlet property="valorView" destination="upJ-xR-mck" id="ITX-lL-sDp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="8Oy-U4-XFB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,17 +23,22 @@
             <subviews>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caQ-4Y-XkN">
                     <items>
-                        <barButtonItem title="Publicar" id="Cbx-uO-hmV">
-                            <connections>
-                                <action selector="cambiarEstado:" destination="-1" id="Nml-E5-kwA"/>
-                            </connections>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VKY-J0-hPm"/>
+                        <barButtonItem style="plain" id="wEA-JI-MJ2">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="upJ-xR-mck">
+                                <rect key="frame" x="104" y="7" width="166" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="dislike-thumb.png"/>
+                                    <segment title="" image="thumb-up.png"/>
+                                    <segment title="" image="chained-hearts.png"/>
+                                </segments>
+                                <connections>
+                                    <action selector="valorar:" destination="-1" eventType="valueChanged" id="mkT-JD-SKc"/>
+                                </connections>
+                            </segmentedControl>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8ar-pW-Gxg"/>
-                        <barButtonItem title="Estadísticas" id="u3y-cg-dJE">
-                            <connections>
-                                <action selector="estadisticas:" destination="-1" id="L7n-Mr-OKo"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7Js-qZ-0zc"/>
                     </items>
                 </toolbar>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Mq-Ka-8pm">
@@ -41,53 +46,44 @@
                         <constraint firstAttribute="width" secondItem="9Mq-Ka-8pm" secondAttribute="height" multiplier="375:128" id="4OU-7m-ZOs"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-JY-Yav">
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="17"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XIe-5f-WEB">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XIe-5f-WEB">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub5-gC-EXz">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBq-DZ-aQF">
                     <constraints>
-                        <constraint firstAttribute="width" constant="161" id="sC8-3f-ep9"/>
+                        <constraint firstAttribute="height" constant="21" id="Gso-c8-Wry"/>
                     </constraints>
-                    <state key="normal" title="Cambiar Imagen">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="setImagen:" destination="-1" eventType="touchUpInside" id="M04-cW-a4E"/>
-                    </connections>
-                </button>
+                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="tBq-DZ-aQF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="2AX-iW-PNj"/>
                 <constraint firstAttribute="trailing" secondItem="XIe-5f-WEB" secondAttribute="trailing" constant="16" id="853-8f-Osq"/>
-                <constraint firstAttribute="trailing" secondItem="g8J-JY-Yav" secondAttribute="trailing" constant="16" id="Cwo-w9-AwF"/>
                 <constraint firstAttribute="trailing" secondItem="9Mq-Ka-8pm" secondAttribute="trailing" id="DLM-pt-EV0"/>
-                <constraint firstItem="XIe-5f-WEB" firstAttribute="top" secondItem="g8J-JY-Yav" secondAttribute="bottom" constant="8" id="I6P-1f-xLS"/>
+                <constraint firstItem="XIe-5f-WEB" firstAttribute="top" secondItem="tBq-DZ-aQF" secondAttribute="bottom" constant="8" id="N06-m8-ty4"/>
                 <constraint firstItem="9Mq-Ka-8pm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qoe-vA-Nbs"/>
+                <constraint firstItem="tBq-DZ-aQF" firstAttribute="top" secondItem="9Mq-Ka-8pm" secondAttribute="bottom" constant="12" id="Whw-6C-Woe"/>
                 <constraint firstItem="caQ-4Y-XkN" firstAttribute="top" secondItem="XIe-5f-WEB" secondAttribute="bottom" constant="21" id="YQf-Mh-xEK"/>
-                <constraint firstItem="g8J-JY-Yav" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="aba-Hx-klz"/>
+                <constraint firstAttribute="trailing" secondItem="tBq-DZ-aQF" secondAttribute="trailing" constant="16" id="a8l-dh-6lp"/>
                 <constraint firstItem="XIe-5f-WEB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="cU1-il-NRn"/>
                 <constraint firstAttribute="bottom" secondItem="caQ-4Y-XkN" secondAttribute="bottom" id="cbG-sa-ZvO"/>
                 <constraint firstItem="caQ-4Y-XkN" firstAttribute="trailing" secondItem="9Mq-Ka-8pm" secondAttribute="trailing" id="fgs-bF-GHb"/>
                 <constraint firstItem="caQ-4Y-XkN" firstAttribute="leading" secondItem="9Mq-Ka-8pm" secondAttribute="leading" id="gIT-Cc-NXK"/>
-                <constraint firstItem="Ub5-gC-EXz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="kjO-kg-VA1"/>
-                <constraint firstAttribute="trailing" secondItem="Ub5-gC-EXz" secondAttribute="trailing" id="l1M-eL-OzD"/>
-                <constraint firstItem="g8J-JY-Yav" firstAttribute="top" secondItem="9Mq-Ka-8pm" secondAttribute="bottom" constant="13" id="qm0-GI-lbT"/>
                 <constraint firstItem="9Mq-Ka-8pm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="52" id="zYS-cs-oDa"/>
             </constraints>
-            <point key="canvasLocation" x="25.5" y="51.5"/>
+            <point key="canvasLocation" x="-265.5" y="-61.5"/>
         </view>
     </objects>
     <resources>
+        <image name="chained-hearts.png" width="32" height="32"/>
+        <image name="dislike-thumb.png" width="32" height="32"/>
         <image name="dummyImage.jpg" width="2560" height="1600"/>
+        <image name="thumb-up.png" width="32" height="32"/>
     </resources>
 </document>

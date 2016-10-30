@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		6139E84E1DC494F2003962F4 /* NoticiaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139E84D1DC494F2003962F4 /* NoticiaService.swift */; };
 		6139E8501DC4A2E2003962F4 /* AzureBlobServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139E84F1DC4A2E2003962F4 /* AzureBlobServices.swift */; };
+		6139E8531DC64CA4003962F4 /* NoticiasLectorTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139E8521DC64CA4003962F4 /* NoticiasLectorTableVC.swift */; };
+		6139E8561DC64D2A003962F4 /* NoticiaLectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139E8541DC64D2A003962F4 /* NoticiaLectorVC.swift */; };
+		6139E8571DC64D2A003962F4 /* NoticiaLectorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6139E8551DC64D2A003962F4 /* NoticiaLectorVC.xib */; };
+		6139E8591DC67CF0003962F4 /* thumb-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E8581DC67CF0003962F4 /* thumb-up.png */; };
+		6139E85B1DC67D71003962F4 /* dislike-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E85A1DC67D71003962F4 /* dislike-thumb.png */; };
+		6139E85D1DC67DE2003962F4 /* chained-hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E85C1DC67DE2003962F4 /* chained-hearts.png */; };
+		6139E8601DC695BB003962F4 /* NoticiaAnalyticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139E85E1DC695BB003962F4 /* NoticiaAnalyticsVC.swift */; };
+		6139E8611DC695BB003962F4 /* NoticiaAnalyticsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6139E85F1DC695BB003962F4 /* NoticiaAnalyticsVC.xib */; };
 		613C382F1DC064CC0029B59C /* NoticiaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613C382D1DC064CC0029B59C /* NoticiaVC.swift */; };
 		613C38301DC064CC0029B59C /* NoticiaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 613C382E1DC064CC0029B59C /* NoticiaVC.xib */; };
 		613C38321DC066180029B59C /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 613C38311DC066180029B59C /* dummyImage.jpg */; };
@@ -32,6 +40,14 @@
 /* Begin PBXFileReference section */
 		6139E84D1DC494F2003962F4 /* NoticiaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiaService.swift; sourceTree = "<group>"; };
 		6139E84F1DC4A2E2003962F4 /* AzureBlobServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AzureBlobServices.swift; sourceTree = "<group>"; };
+		6139E8521DC64CA4003962F4 /* NoticiasLectorTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiasLectorTableVC.swift; sourceTree = "<group>"; };
+		6139E8541DC64D2A003962F4 /* NoticiaLectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiaLectorVC.swift; sourceTree = "<group>"; };
+		6139E8551DC64D2A003962F4 /* NoticiaLectorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaLectorVC.xib; sourceTree = "<group>"; };
+		6139E8581DC67CF0003962F4 /* thumb-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-up.png"; sourceTree = "<group>"; };
+		6139E85A1DC67D71003962F4 /* dislike-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dislike-thumb.png"; sourceTree = "<group>"; };
+		6139E85C1DC67DE2003962F4 /* chained-hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chained-hearts.png"; sourceTree = "<group>"; };
+		6139E85E1DC695BB003962F4 /* NoticiaAnalyticsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiaAnalyticsVC.swift; sourceTree = "<group>"; };
+		6139E85F1DC695BB003962F4 /* NoticiaAnalyticsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaAnalyticsVC.xib; sourceTree = "<group>"; };
 		613C382D1DC064CC0029B59C /* NoticiaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticiaVC.swift; sourceTree = "<group>"; };
 		613C382E1DC064CC0029B59C /* NoticiaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaVC.xib; sourceTree = "<group>"; };
 		613C38311DC066180029B59C /* dummyImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dummyImage.jpg; path = Scoops/dummyImage.jpg; sourceTree = "<group>"; };
@@ -70,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6139E8511DC64C70003962F4 /* Lector */ = {
+			isa = PBXGroup;
+			children = (
+				6139E8521DC64CA4003962F4 /* NoticiasLectorTableVC.swift */,
+				6139E8541DC64D2A003962F4 /* NoticiaLectorVC.swift */,
+				6139E8551DC64D2A003962F4 /* NoticiaLectorVC.xib */,
+			);
+			name = Lector;
+			sourceTree = "<group>";
+		};
 		613C38291DC064530029B59C /* Modelos */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +111,8 @@
 				616B7CAB1DBEA719005BDE1A /* NoticiasEditorTableVC.swift */,
 				613C382D1DC064CC0029B59C /* NoticiaVC.swift */,
 				613C382E1DC064CC0029B59C /* NoticiaVC.xib */,
+				6139E85E1DC695BB003962F4 /* NoticiaAnalyticsVC.swift */,
+				6139E85F1DC695BB003962F4 /* NoticiaAnalyticsVC.xib */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -92,8 +120,11 @@
 		616B7C641DBE9D6A005BDE1A = {
 			isa = PBXGroup;
 			children = (
-				61B6C2591DC111BF001F4BB6 /* Frameworks */,
+				6139E8581DC67CF0003962F4 /* thumb-up.png */,
 				613C38311DC066180029B59C /* dummyImage.jpg */,
+				6139E85A1DC67D71003962F4 /* dislike-thumb.png */,
+				6139E85C1DC67DE2003962F4 /* chained-hearts.png */,
+				61B6C2591DC111BF001F4BB6 /* Frameworks */,
 				616B7C6F1DBE9D6A005BDE1A /* Scoops */,
 				616B7C6E1DBE9D6A005BDE1A /* Products */,
 			);
@@ -110,6 +141,7 @@
 		616B7C6F1DBE9D6A005BDE1A /* Scoops */ = {
 			isa = PBXGroup;
 			children = (
+				6139E8511DC64C70003962F4 /* Lector */,
 				61C6C89C1DC30DD200949280 /* DummyData */,
 				616EC9851DC3007B00F9227D /* Azure */,
 				613C38291DC064530029B59C /* Modelos */,
@@ -225,11 +257,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				61C6C89B1DC30AF700949280 /* LoginVC.xib in Resources */,
+				6139E8591DC67CF0003962F4 /* thumb-up.png in Resources */,
+				6139E8571DC64D2A003962F4 /* NoticiaLectorVC.xib in Resources */,
 				616B7C7B1DBE9D6A005BDE1A /* LaunchScreen.storyboard in Resources */,
+				6139E85B1DC67D71003962F4 /* dislike-thumb.png in Resources */,
 				616B7C781DBE9D6A005BDE1A /* Assets.xcassets in Resources */,
 				613C38301DC064CC0029B59C /* NoticiaVC.xib in Resources */,
+				6139E8611DC695BB003962F4 /* NoticiaAnalyticsVC.xib in Resources */,
 				616B7C761DBE9D6A005BDE1A /* Main.storyboard in Resources */,
 				613C38321DC066180029B59C /* dummyImage.jpg in Resources */,
+				6139E85D1DC67DE2003962F4 /* chained-hearts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,11 +280,14 @@
 				61C6C89E1DC30DE300949280 /* DummyData.swift in Sources */,
 				616B7C731DBE9D6A005BDE1A /* ViewController.swift in Sources */,
 				6139E8501DC4A2E2003962F4 /* AzureBlobServices.swift in Sources */,
+				6139E8601DC695BB003962F4 /* NoticiaAnalyticsVC.swift in Sources */,
 				616EC9871DC300BC00F9227D /* AzureServices.swift in Sources */,
 				61C6C89A1DC30AF700949280 /* LoginVC.swift in Sources */,
+				6139E8561DC64D2A003962F4 /* NoticiaLectorVC.swift in Sources */,
 				616B7C711DBE9D6A005BDE1A /* AppDelegate.swift in Sources */,
 				613C382F1DC064CC0029B59C /* NoticiaVC.swift in Sources */,
 				616B7CAC1DBEA719005BDE1A /* NoticiasEditorTableVC.swift in Sources */,
+				6139E8531DC64CA4003962F4 /* NoticiasLectorTableVC.swift in Sources */,
 				6139E84E1DC494F2003962F4 /* NoticiaService.swift in Sources */,
 				616B7CAE1DBEA884005BDE1A /* Noticia.swift in Sources */,
 			);

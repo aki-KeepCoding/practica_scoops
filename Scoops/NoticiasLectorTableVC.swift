@@ -1,14 +1,14 @@
 //
-//  NoticiasAdministradorTableVC.swift
+//  NoticiasLectorTableVC.swift
 //  Scoops
 //
-//  Created by Akixe on 24/10/16.
+//  Created by Akixe on 30/10/16.
 //  Copyright © 2016 AOA. All rights reserved.
 //
 
 import UIKit
 
-class NoticiasEditorTableVC: UITableViewController {
+class NoticiasLectorTableVC: UITableViewController {
 
     var model: Noticias? = []
     let noticiaService : NoticiaService
@@ -16,7 +16,8 @@ class NoticiasEditorTableVC: UITableViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    init(editor: String, noticiaService: NoticiaService = NoticiaService()) {
+    
+    init(noticiaService: NoticiaService = NoticiaService()) {
         self.noticiaService = noticiaService
         super.init(nibName:nil, bundle:nil)
     }
@@ -25,36 +26,25 @@ class NoticiasEditorTableVC: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
-                                                                 target: self,
-                                                                 action: #selector(self.addNoticia))
         
-        searchController.searchBar.scopeButtonTitles = ["Todo",
-                                                        Estado.privado.rawValue,
-                                                        Estado.publicable.rawValue,
-                                                        Estado.publicado.rawValue]
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
 
-    override func viewWillAppear(_ animated: Bool) {
     
+    override func viewWillAppear(_ animated: Bool) {
         readAllNoticias()
         super.viewWillAppear(animated)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -74,9 +64,7 @@ class NoticiasEditorTableVC: UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         
         let noticia : Noticia?
@@ -88,7 +76,6 @@ class NoticiasEditorTableVC: UITableViewController {
         cell.textLabel?.text = noticia?.titulo
         cell.detailTextLabel?.text = noticia?.autor
         
-
         return cell
     }
     
@@ -109,12 +96,9 @@ class NoticiasEditorTableVC: UITableViewController {
     func searchContextActive() -> Bool {
         return searchController.isActive
     }
-    func addNoticia(){
-        openNoticiaVC(withModel: Noticia(withAutor: "Akixe"))
-    }
     
     func readAllNoticias(){
-        noticiaService.getAll { (noticias, error) in
+        noticiaService.getNoticiasLector { (noticias, error) in
             if let _ = error {
                 print(error)
                 return
@@ -130,40 +114,23 @@ class NoticiasEditorTableVC: UITableViewController {
     }
     
     func openNoticiaVC(withModel model: Noticia) {
-        let noticiaVC = NoticiaVC(model: model, noticiaService: self.noticiaService)
+        let noticiaVC = NoticiaLectorVC(model: model, noticiaService: self.noticiaService)
         self.navigationController?.pushViewController(noticiaVC, animated: true)
     }
     
-    
     func filterNoticiasFor(searchText: String, scope: String = "Todo") {
         filteredNoticias = (model?.filter { noticia in
-            let estadoMatch = scope == "Todo" || (noticia.estado == Estado(rawValue: scope))
+            return (noticia.titulo?.lowercased().contains(searchText.lowercased()))!
             
-            if searchText == "" {
-                return estadoMatch
-            } else {
-                return estadoMatch && (noticia.titulo?.lowercased().contains(searchText.lowercased()))!
-            }
-            
-            })!
+        })!
         
         tableView.reloadData()
     }
 
 }
 
-
-extension NoticiasEditorTableVC: UISearchResultsUpdating {
+extension NoticiasLectorTableVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterNoticiasFor(searchText: searchController.searchBar.text!, scope: scope)
-    }
-}
-
-
-extension NoticiasEditorTableVC: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterNoticiasFor(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+        filterNoticiasFor(searchText: searchController.searchBar.text!, scope: "Todo")
     }
 }
