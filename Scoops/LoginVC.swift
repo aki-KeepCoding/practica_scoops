@@ -14,9 +14,9 @@ class LoginVC: UIViewController {
     @IBAction func loginEditor(_ sender: AnyObject) {
         
         //if !(nombreEditorView.text?.isEmpty)! {
-        
+            let noticiaService = NoticiaService()
             let noticiasEditorTableVC = NoticiasEditorTableVC(editor: "aa",
-                                                              azClient: AzureServices.mobileAppClient)
+                                                              noticiaService: noticiaService)
             let editorNavVC = UINavigationController(rootViewController: noticiasEditorTableVC)
         
         
