@@ -11,18 +11,25 @@ import Foundation
 typealias NoticiaDict = Dictionary<String,AnyObject>
 typealias Noticias = [Noticia]
 
+enum Estado: String {
+    case privado = "Privado"
+    case publicable = "Publicable"
+    case publicado = "Publicado"
+}
 class Noticia {
     var id: String = ""
     var titulo : String?
     var texto : String?
     var autor : String?
     var imagenURL : String?
+    var estado : Estado? // Privado | Publicable | Publicada
     
     init(id: String?,
          titulo: String,
          texto: String,
          autor: String,
-         imagenURL : String) {
+         imagenURL : String,
+         estado: Estado? = Estado.privado) {
         if let _id = id {
             self.id = _id
         }
@@ -30,16 +37,24 @@ class Noticia {
         self.texto = texto
         self.autor = autor
         self.imagenURL = imagenURL
+        if let _estado = estado  {
+            self.estado = _estado
+        } else {
+            self.estado = Estado.privado
+        }
+        
     }
     convenience init(withAutor autor : String) {
         let titulo = ""
         let texto = ""
         let imagenURL = ""
+        let estado = Estado.privado
         self.init(id: nil,
                   titulo: titulo,
                   texto: texto,
                   autor: autor,
-                  imagenURL: imagenURL)
+                  imagenURL: imagenURL,
+                  estado: estado)
     }
     
     convenience init(withDictionary noticiaDict: NoticiaDict) {
@@ -48,6 +63,7 @@ class Noticia {
         var texto = ""
         var autor = "Anónimo"
         var imagenURL = ""
+        var estado = Estado.privado
         if let _id = noticiaDict["id"] as? String {
             id = _id
         }
@@ -63,11 +79,16 @@ class Noticia {
         if let _imagenURL = noticiaDict["imagenURL"] as? String {
             imagenURL = _imagenURL
         }
+        
+        if let _estado = noticiaDict["estado"] as? String {
+            estado = Estado(rawValue : _estado)!
+        }
         self.init(id: id,
                   titulo: titulo,
                   texto: texto,
                   autor: autor,
-                  imagenURL: imagenURL)
+                  imagenURL: imagenURL,
+                  estado: estado)
     }
     
     
@@ -79,10 +100,17 @@ class Noticia {
             "autor" : self.autor! as AnyObject,
             "imagenURL" : self.imagenURL! as AnyObject,
             "valoracion" : 0 as AnyObject,
-            "publicada" : false as AnyObject
+            "estado" : self.estado!.rawValue as AnyObject
         ]
         
         return noticiaDict
     }
     
+    public func cambiarEstado() {
+        if self.estado == Estado.privado {
+            self.estado = Estado.publicable
+        } else {
+            self.estado = Estado.privado
+        }
+    }
 }

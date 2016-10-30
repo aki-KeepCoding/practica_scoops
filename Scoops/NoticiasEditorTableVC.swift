@@ -35,6 +35,11 @@ class NoticiasEditorTableVC: UITableViewController {
                                                                  target: self,
                                                                  action: #selector(self.addNoticia))
         
+        searchController.searchBar.scopeButtonTitles = ["Todo",
+                                                        Estado.privado.rawValue,
+                                                        Estado.publicable.rawValue,
+                                                        Estado.publicado.rawValue]
+        searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
@@ -101,7 +106,7 @@ class NoticiasEditorTableVC: UITableViewController {
     }
     
     func searchContextActive() -> Bool {
-        return searchController.isActive && searchController.searchBar.text != ""
+        return searchController.isActive
     }
     func addNoticia(){
         openNoticiaVC(withModel: Noticia(withAutor: "Akixe"))
@@ -129,9 +134,16 @@ class NoticiasEditorTableVC: UITableViewController {
     }
     
     
-    func filterNoticiasFor(searchText: String, scope: String = "All") {
+    func filterNoticiasFor(searchText: String, scope: String = "Todo") {
         filteredNoticias = (model?.filter { noticia in
-            return (noticia.titulo?.lowercased().contains(searchText.lowercased()))!
+            let estadoMatch = scope == "Todo" || (noticia.estado == Estado(rawValue: scope))
+            
+            if searchText == "" {
+                return estadoMatch
+            } else {
+                return estadoMatch && (noticia.titulo?.lowercased().contains(searchText.lowercased()))!
+            }
+            
             })!
         
         tableView.reloadData()
@@ -142,6 +154,15 @@ class NoticiasEditorTableVC: UITableViewController {
 
 extension NoticiasEditorTableVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterNoticiasFor(searchText: searchController.searchBar.text!)
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterNoticiasFor(searchText: searchController.searchBar.text!, scope: scope)
+    }
+}
+
+
+extension NoticiasEditorTableVC: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterNoticiasFor(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }

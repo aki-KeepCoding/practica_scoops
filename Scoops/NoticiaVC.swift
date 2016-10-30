@@ -10,23 +10,31 @@ import UIKit
 
 class NoticiaVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    let imagePicker = UIImagePickerController()
+    let noticiaService : NoticiaService
+    let blobService : AzureBlobServices
+    
     @IBOutlet weak var imagenView: UIImageView!
     @IBOutlet weak var tituloView: UITextField!
     @IBOutlet weak var textoView: UITextView!
+    @IBOutlet weak var estadoView: UIBarButtonItem!
     @IBAction func setImagen(_ sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
-    let imagePicker = UIImagePickerController()
+    @IBAction func cambiarEstado(_ sender: AnyObject) {
+        model.cambiarEstado()
+        syncModelToView()
+    }
     
+    
+    let model : Noticia
     
     var flagUploadingImagen = false
     var flagNuevaNoticia = false
     
-    let model : Noticia
-    let noticiaService : NoticiaService
-    let blobService : AzureBlobServices
+    
     
     init(model:Noticia,
          noticiaService : NoticiaService? = NoticiaService(),
@@ -76,13 +84,21 @@ class NoticiaVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 }
             }
         }
+        
+        if let _estado = model.estado {
+            estadoView.title = _estado.rawValue
+        } else {
+            estadoView.title = Estado.privado.rawValue
+        }
     }
+    
     
     
     
     func syncViewToModel () {
         model.titulo = tituloView.text!
         model.texto = textoView.text!
+        model.estado = Estado(rawValue: estadoView.title!)
     }
     
     func save(){
@@ -106,7 +122,7 @@ class NoticiaVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     
     
-    // MARK - BlobStorage
+    // MARK - ImagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let imagenSeleccionada = info[UIImagePickerControllerOriginalImage] as? UIImage {

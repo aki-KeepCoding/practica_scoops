@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticiaVC" customModule="Scoops" customModuleProvider="target">
             <connections>
+                <outlet property="estadoView" destination="Cbx-uO-hmV" id="q07-pc-7GD"/>
                 <outlet property="imagenView" destination="9Mq-Ka-8pm" id="yXJ-LJ-kVR"/>
                 <outlet property="textoView" destination="XIe-5f-WEB" id="n8s-oh-rtj"/>
                 <outlet property="tituloView" destination="g8J-JY-Yav" id="rof-wE-mln"/>
@@ -22,7 +23,11 @@
             <subviews>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caQ-4Y-XkN">
                     <items>
-                        <barButtonItem title="Publicar" id="Cbx-uO-hmV"/>
+                        <barButtonItem title="Publicar" id="Cbx-uO-hmV">
+                            <connections>
+                                <action selector="cambiarEstado:" destination="-1" id="Nml-E5-kwA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8ar-pW-Gxg"/>
                         <barButtonItem title="Estadísticas" id="u3y-cg-dJE"/>
                     </items>
