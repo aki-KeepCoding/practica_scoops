@@ -2,7 +2,7 @@ var api = {
     "get": function (req, res, next) {
         var context = req.azureMobile;
         var query = {
-            sql: "SELECT * FROM Noticias WHERE estado = 'Privado'"
+            sql: "SELECT * FROM Noticias WHERE estado = 'Publicado'"
         };
         context.data.execute(query)
             .then(function(result){
