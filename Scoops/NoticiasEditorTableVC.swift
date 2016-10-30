@@ -12,7 +12,9 @@ class NoticiasEditorTableVC: UITableViewController {
 
     var model: Noticias? = []
     let noticiaService : NoticiaService
+    var filteredNoticias = Noticias()
     
+    let searchController = UISearchController(searchResultsController: nil)
     
     init(editor: String, noticiaService: NoticiaService = NoticiaService()) {
         self.noticiaService = noticiaService
@@ -32,12 +34,19 @@ class NoticiasEditorTableVC: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                                                  target: self,
                                                                  action: #selector(self.addNoticia))
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
     }
 
     override func viewWillAppear(_ animated: Bool) {
+    
         readAllNoticias()
         super.viewWillAppear(animated)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,6 +59,9 @@ class NoticiasEditorTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchContextActive() {
+            return filteredNoticias.count
+        }
         if let m = model {
             return m.count
         } else {
@@ -60,19 +72,37 @@ class NoticiasEditorTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = model?[indexPath.row].titulo
-        cell.detailTextLabel?.text = model?[indexPath.row].autor
+        
+        let noticia : Noticia?
+        if searchContextActive() {
+            noticia = filteredNoticias[indexPath.row]
+        } else {
+            noticia = model?[indexPath.row]
+        }
+        cell.textLabel?.text = noticia?.titulo
+        cell.detailTextLabel?.text = noticia?.autor
         
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let noticia = model?[indexPath.row] {
-            openNoticiaVC(withModel: noticia)
+        let noticia : Noticia?
+        
+        if searchContextActive() {
+            noticia = filteredNoticias[indexPath.row]
+        } else {
+            noticia = model?[indexPath.row]
         }
+        if let _noticia = noticia  {
+            openNoticiaVC(withModel: _noticia)
+        }
+        searchController.isActive = false
     }
     
+    func searchContextActive() -> Bool {
+        return searchController.isActive && searchController.searchBar.text != ""
+    }
     func addNoticia(){
         openNoticiaVC(withModel: Noticia(withAutor: "Akixe"))
     }
@@ -97,5 +127,21 @@ class NoticiasEditorTableVC: UITableViewController {
         let noticiaVC = NoticiaVC(model: model, noticiaService: self.noticiaService)
         self.navigationController?.pushViewController(noticiaVC, animated: true)
     }
+    
+    
+    func filterNoticiasFor(searchText: String, scope: String = "All") {
+        filteredNoticias = (model?.filter { noticia in
+            return (noticia.titulo?.lowercased().contains(searchText.lowercased()))!
+            })!
+        
+        tableView.reloadData()
+    }
 
+}
+
+
+extension NoticiasEditorTableVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterNoticiasFor(searchText: searchController.searchBar.text!)
+    }
 }
